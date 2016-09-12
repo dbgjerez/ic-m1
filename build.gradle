@@ -19,6 +19,12 @@ apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
 apply plugin: "org.sonarqube"
 
+sonarRunner {
+    sonarProperties {
+        property "sonar.host.url", "http://172.17.42.1:9000"
+    }
+}
+
 jar {
 	baseName = 'ic-m1'
 	version = '0.0.1-SNAPSHOT'
