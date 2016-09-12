@@ -46,6 +46,7 @@ sonarqube {
 	properties {
 		property 'sonar.sourceEncoding', 'UTF-8'
         property 'sonar.host.url', 'http://172.17.42.1:9000'
+        property 'sonar.projectName', 'IC W1'
 	}
 }
 
