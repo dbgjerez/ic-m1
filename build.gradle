@@ -17,13 +17,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
-apply plugin: "org.sonarqube"
-
-sonarRunner {
-    sonarProperties {
-        property "sonar.host.url", "http://172.17.42.1:9000"
-    }
-}
+apply plugin: 'org.sonarqube'
 
 jar {
 	baseName = 'ic-m1'
@@ -51,6 +45,7 @@ dependencies {
 sonarqube {
 	properties {
 		property 'sonar.sourceEncoding', 'UTF-8'
+        property 'sonar.host.url', 'http://172.17.42.1:9000'
 	}
 }
 
