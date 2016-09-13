@@ -1,12 +1,11 @@
-job('ic-w1-clean') {
+job('ic-w1-build') {
     scm {
         git('git://github.com/dbgjerez/ic-m1.git')
     }
     triggers {
-    	 githubPush()
+    	 upstream('ic-w1-jacoco', 'SUCCESS')
     }
     steps {
-        gradle('clean')
+        gradle('build')
     }
 }
-
