@@ -51,6 +51,7 @@ dependencies {
 sonarqube {
 	properties {
 		property 'sonar.sourceEncoding', 'UTF-8'
+		property 'sonar.projectKey', 'ICM1'
         property 'sonar.host.url', 'http://172.17.42.1:9000'
         property 'sonar.projectName', 'IC Microservice 1'
         property 'sonar.jacoco.reportPath', 'build/jacoco/test.exec'
