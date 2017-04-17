@@ -1,14 +1,12 @@
-package com.dbg.ic.m1.dto;
+package com.dbg.sc.ms1.dto;
 
 import java.io.Serializable;
-
-import com.dbg.ic.m1.model.StatusEnum;
 
 public class StatusDTO implements Serializable {
 
 	private static final long serialVersionUID = -5490685490462885635L;
 
-	private String status = StatusEnum.UP.name();
+	private String status;
 
 	public String getStatus() {
 		return status;

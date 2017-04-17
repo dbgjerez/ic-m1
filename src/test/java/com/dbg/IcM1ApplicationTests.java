@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.dbg.ic.m1.IcM1Application;
+import com.dbg.sc.ms1.IcM1Application;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = IcM1Application.class)
