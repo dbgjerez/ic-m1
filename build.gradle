@@ -11,14 +11,22 @@ buildscript {
 	dependencies {
     	classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.1-rc3"
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    	classpath 'net.researchgate:gradle-release:2.4.0'
 	}
 }
 
+plugins {
+    id 'net.researchgate.release' version '2.4.0'
+}
+
+apply plugin: 'maven-publish'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
 apply plugin: 'org.sonarqube'
 apply plugin: 'jacoco'
+apply plugin: 'maven'
+apply plugin: 'net.researchgate.release'
 
 jacoco {
     toolVersion = "0.7.6.201602180812"
@@ -35,6 +43,33 @@ targetCompatibility = 1.8
 
 repositories {
 	mavenCentral()
+}
+
+uploadArchives {
+  repositories {
+    mavenDeployer {
+      pom.artifactId = 'icm1'
+      repository(
+        url: "${nexusUrl}/content/repositories/releases") {
+          authentication(userName: nexusUsername, password: nexusPassword)
+      }
+      snapshotRepository(
+        url: "${nexusUrl}/content/repositories/snapshots") {
+          authentication(userName: nexusUsername, password: nexusPassword)
+      }
+    }
+  }
+}
+
+release {
+	
+	git {
+        requireBranch = 'master'
+        pushToRemote = 'origin'
+        pushToBranchPrefix = ''
+        commitVersionFileOnly = false
+    }
+	
 }
 
 dependencies {
